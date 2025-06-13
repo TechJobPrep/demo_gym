@@ -1,14 +1,10 @@
 'use client';
 
 import { useState } from "react";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, User, MessageSquare, Send } from "lucide-react";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -21,96 +17,90 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen pt-[80px] pb-20 px-6 sm:px-10 bg-gradient-to-br from-black via-neutral-900 to-neutral-800 text-white">
-      <section className="max-w-4xl mx-auto space-y-12">
-        {/* Title */}
-        <h1 className="text-4xl sm:text-5xl font-bold text-yellow-500 text-center">Contact Us</h1>
+    <main className="min-h-screen flex flex-col md:flex-row text-white">
+      {/* Left Panel with Info */}
+      <div className="md:w-1/2 bg-gradient-to-br from-yellow-500 via-yellow-600 to-yellow-700 p-10 flex flex-col justify-center space-y-10">
+        <h1 className="text-4xl font-bold">Get in Touch</h1>
+        <p className="text-lg">We're here to help you reach your fitness goals. Contact us anytime!</p>
 
-        {/* Contact Info Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-          <div className="bg-neutral-800 hover:bg-neutral-700 transition rounded-xl p-6 shadow-lg border border-yellow-500/40 hover:scale-105 transform duration-300">
-            <Phone className="mx-auto text-yellow-500" size={32} />
-            <h3 className="mt-4 font-semibold">Call Us</h3>
-            <p className="text-sm text-neutral-400 mt-2">+1 (123) 456-7890</p>
+        <div className="space-y-6">
+          <div className="flex items-center space-x-4">
+            <Phone className="text-white" />
+            <span>+1 (123) 456-7890</span>
           </div>
-          <div className="bg-neutral-800 hover:bg-neutral-700 transition rounded-xl p-6 shadow-lg border border-yellow-500/40 hover:scale-105 transform duration-300">
-            <Mail className="mx-auto text-yellow-500" size={32} />
-            <h3 className="mt-4 font-semibold">Email Us</h3>
-            <p className="text-sm text-neutral-400 mt-2">support@gymhub.com</p>
+          <div className="flex items-center space-x-4">
+            <Mail className="text-white" />
+            <span>support@flexpulse.com</span>
           </div>
-          <div className="bg-neutral-800 hover:bg-neutral-700 transition rounded-xl p-6 shadow-lg border border-yellow-500/40 hover:scale-105 transform duration-300">
-            <MapPin className="mx-auto text-yellow-500" size={32} />
-            <h3 className="mt-4 font-semibold">Visit Us</h3>
-            <p className="text-sm text-neutral-400 mt-2">123 Gym Street, Fit City</p>
+          <div className="flex items-center space-x-4">
+            <MapPin className="text-white" />
+            <span>123 Flex Street, Fit City</span>
           </div>
         </div>
+      </div>
 
-        {/* Contact Form */}
+      {/* Right Panel with Form */}
+      <div className="md:w-1/2 bg-black flex items-center justify-center py-16 px-6">
         {submitted ? (
-          <div className="bg-yellow-500 text-black p-6 rounded-lg text-center font-semibold shadow-lg">
-            Thank you for reaching out! We will get back to you shortly.
+          <div className="text-center bg-yellow-500 text-black p-10 rounded-xl shadow-lg max-w-md">
+            <h2 className="text-2xl font-bold mb-4">Thank you!</h2>
+            <p>We'll be in touch very soon.</p>
           </div>
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="backdrop-blur-md bg-white/5 border border-yellow-500/20 rounded-xl shadow-2xl p-8 space-y-6 transition-all duration-300"
+            className="bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 rounded-2xl shadow-2xl border border-yellow-500/30 w-full max-w-lg space-y-6"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block mb-2 font-medium">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md bg-neutral-900 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white transition-all duration-200"
-                />
-              </div>
+            <h2 className="text-2xl font-bold text-yellow-500 text-center">Contact Form</h2>
 
-              <div>
-                <label htmlFor="email" className="block mb-2 font-medium">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md bg-neutral-900 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white transition-all duration-200"
-                />
-              </div>
+            <div className="relative">
+              <User className="absolute left-3 top-3 text-yellow-500" />
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full pl-10 pr-4 py-3 bg-neutral-900 border border-neutral-700 rounded-md text-white focus:ring-2 focus:ring-yellow-500 outline-none"
+              />
             </div>
 
-            <div>
-              <label htmlFor="message" className="block mb-2 font-medium">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
+            <div className="relative">
+              <Mail className="absolute left-3 top-3 text-yellow-500" />
+              <input
+                type="email"
+                name="email"
                 required
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full pl-10 pr-4 py-3 bg-neutral-900 border border-neutral-700 rounded-md text-white focus:ring-2 focus:ring-yellow-500 outline-none"
+              />
+            </div>
+
+            <div className="relative">
+              <MessageSquare className="absolute left-3 top-3 text-yellow-500" />
+              <textarea
+                name="message"
+                required
+                rows={5}
+                placeholder="Your Message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-md bg-neutral-900 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white resize-none transition-all duration-200"
+                className="w-full pl-10 pr-4 py-3 bg-neutral-900 border border-neutral-700 rounded-md text-white focus:ring-2 focus:ring-yellow-500 outline-none resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-3 px-6 bg-yellow-500 text-black font-semibold rounded-full hover:bg-yellow-600 transition-all duration-300 shadow-md hover:shadow-yellow-600"
+              className="w-full flex justify-center items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black py-3 px-6 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-yellow-500/50"
             >
-              Send Message
+              <Send size={20} /> Send Message
             </button>
           </form>
         )}
-      </section>
+      </div>
     </main>
   );
 }

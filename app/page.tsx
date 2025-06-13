@@ -6,6 +6,7 @@ import ContactSection from "@/app/contact/page"
 import AboutUs from "@/app/about/page"
 import ClassesSection from "@/app/classes/page"
 import MarqueeDemo from "./components/MarqueeDemo";
+import WhyChooseUs from "@/app/components/why-choose-us"
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       <ClassesSection />
       <TrainersSection />
       <MembershipSection />
-      <GallerySection />
+      <WhyChooseUs />
       <MarqueeDemo />
       <ContactSection />
       

@@ -1,50 +1,56 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Sparkles, Target } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen pt-[80px] pb-20 px-6 sm:px-10 bg-gradient-to-br from-black via-neutral-900 to-neutral-800 text-white">
-      <section className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* Left - Animated Text Content */}
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="space-y-8"
+    <main className="min-h-screen pt-[80px] pb-20 px-6 sm:px-10 bg-black text-white">
+      <section className="max-w-6xl mx-auto">
+        {/* Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl md:text-6xl font-extrabold text-white text-center mb-20 tracking-tight"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold text-yellow-500 text-center lg:text-left">
-            About FlexPulse Gym
-          </h1>
+          Our Purpose at <span className="text-yellow-500">FlexPulse</span>
+        </motion.h1>
 
-          <p className="text-lg sm:text-xl leading-relaxed text-neutral-300 font-mono">
-            Founded in 2024, FlexPulse Gym is dedicated to helping you reach your fitness goals in a welcoming and modern environment. Our mission is to empower every individual to build strength, boost energy, and live healthier lives.
-          </p>
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Vision */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="bg-neutral-900 p-8 rounded-2xl border border-neutral-800 hover:border-yellow-500/40 transition duration-300"
+          >
+            <div className="flex items-center space-x-4 mb-6">
+              <Sparkles size={32} className="text-yellow-500" />
+              <h2 className="text-2xl font-semibold">Our Vision</h2>
+            </div>
+            <p className="text-neutral-400 text-lg leading-relaxed">
+              Inspire transformation through community, consistency, and strength — both mental and physical.
+            </p>
+          </motion.div>
 
-          <div className="text-center lg:text-left mt-6">
-            <a
-              href="/join"
-              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black rounded-full px-10 py-4 font-semibold text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-yellow-600"
-            >
-              Join Our Community
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Right - Animated Image */}
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="w-full h-full flex items-center justify-center"
-        >
-          <img
-            src="/images/about-gym.jpg" // Replace with your actual image path
-            alt="Gym Overview"
-            className="rounded-3xl shadow-2xl border border-yellow-500/20 hover:scale-105 transition-transform duration-500 object-cover w-full max-h-[550px]"
-          />
-        </motion.div>
+          {/* Mission */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2 }}
+            className="bg-neutral-900 p-8 rounded-2xl border border-neutral-800 hover:border-yellow-500/40 transition duration-300"
+          >
+            <div className="flex items-center space-x-4 mb-6">
+              <Target size={32} className="text-yellow-500" />
+              <h2 className="text-2xl font-semibold">Our Mission</h2>
+            </div>
+            <p className="text-neutral-400 text-lg leading-relaxed">
+              Equip individuals with the tools, environment, and motivation to reach their peak potential — every day.
+            </p>
+          </motion.div>
+        </div>
       </section>
     </main>
   );
