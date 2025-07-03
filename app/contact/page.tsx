@@ -1,14 +1,14 @@
 'use client';
 
-import { useState } from "react";
-import { Phone, Mail, MapPin, User, MessageSquare, Send } from "lucide-react";
+import { useState } from 'react';
+import { Phone, Mail, MapPin, User, MessageSquare, Send } from 'lucide-react';
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -21,7 +21,9 @@ export default function ContactPage() {
       {/* Left Panel with Info */}
       <div className="md:w-1/2 bg-gradient-to-br from-yellow-500 via-yellow-600 to-yellow-700 p-10 flex flex-col justify-center space-y-10">
         <h1 className="text-4xl font-bold">Get in Touch</h1>
-        <p className="text-lg">We're here to help you reach your fitness goals. Contact us anytime!</p>
+        <p className="text-lg">
+          We&apos;re here to help you reach your fitness goals. Contact us anytime!
+        </p>
 
         <div className="space-y-6">
           <div className="flex items-center space-x-4">
@@ -44,7 +46,7 @@ export default function ContactPage() {
         {submitted ? (
           <div className="text-center bg-yellow-500 text-black p-10 rounded-xl shadow-lg max-w-md">
             <h2 className="text-2xl font-bold mb-4">Thank you!</h2>
-            <p>We'll be in touch very soon.</p>
+            <p>We&apos;ll be in touch very soon.</p>
           </div>
         ) : (
           <form

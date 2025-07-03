@@ -1,7 +1,7 @@
 import HeroSection from "@/app/components/HeroSection";
 import TrainersSection from "@/app/trainers/page"
 import MembershipSection from "@/app/membership/page"
-import GallerySection from "@/app/gallery/page"
+// import GallerySection from "@/app/gallery/page"
 import ContactSection from "@/app/contact/page"
 import AboutUs from "@/app/about/page"
 import ClassesSection from "@/app/classes/page"
