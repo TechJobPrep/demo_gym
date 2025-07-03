@@ -11,7 +11,7 @@ export default function MembershipPage() {
           {[
             {
               title: "Basic",
-              price: "$29/mo",
+              price: "2000/mo",
               features: [
                 "Access to gym equipment",
                 "Locker room access",
@@ -20,7 +20,7 @@ export default function MembershipPage() {
             },
             {
               title: "Pro",
-              price: "$49/mo",
+              price: "2000/mo",
               features: [
                 "Everything in Basic",
                 "Personal training sessions",
@@ -30,7 +30,7 @@ export default function MembershipPage() {
             },
             {
               title: "Elite",
-              price: "$79/mo",
+              price: "2000/mo",
               features: [
                 "Everything in Pro",
                 "Unlimited personal training",

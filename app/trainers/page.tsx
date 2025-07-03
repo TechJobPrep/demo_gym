@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';               // ⬅️ add this
 
 const trainers = [
-  { name: "Alex Carter", specialty: "Strength & Conditioning", img: "/images/trainers/alex.jpg" },
-  { name: "Maya Lee", specialty: "Yoga & Flexibility", img: "/images/trainers/maya.jpg" },
-  { name: "Jake Thompson", specialty: "CrossFit & Endurance", img: "/images/trainers/jake.jpg" },
+  { name: 'Alex Carter', specialty: 'Strength & Conditioning', img: '/images/trainers/alex.jpg' },
+  { name: 'Maya Lee', specialty: 'Yoga & Flexibility', img: '/images/trainers/maya.jpg' },
+  { name: 'Jake Thompson', specialty: 'CrossFit & Endurance', img: '/images/trainers/jake.jpg' }
 ];
 
 export default function TrainersPage() {
@@ -20,7 +21,7 @@ export default function TrainersPage() {
           viewport={{ once: true }}
           className="text-4xl sm:text-5xl font-bold text-yellow-500 mb-6"
         >
-          Meet Our Trainers
+          Meet&nbsp;Our&nbsp;Trainers
         </motion.h1>
 
         {/* Animated Subtext */}
@@ -45,9 +46,11 @@ export default function TrainersPage() {
               viewport={{ once: true }}
               className="animated-border flex flex-col items-center justify-center text-center rounded-xl p-6 transition hover:shadow-yellow-500/10"
             >
-              <img
+              <Image
                 src={trainer.img}
                 alt={trainer.name}
+                width={128}              // required by <Image />
+                height={128}
                 className="w-32 h-32 rounded-full object-cover border-4 border-yellow-500 mb-4"
               />
               <h3 className="text-xl font-semibold text-yellow-400">{trainer.name}</h3>
